@@ -17,4 +17,11 @@ where
 {
     /// Returns an array of mutable storage cells.
     fn storage(&'a mut self) -> &'a mut [StorageType; CELL_COUNT];
+
+    /// Dumps the contents of all storage cells into an array.
+    /// This is for integrity validation purposes and not an alternative to `storage`.
+    fn dump_storage(&self) -> [StoredType; CELL_COUNT];
+
+    /// Clears all storage cells to their default state.
+    fn clear_storage(&mut self);
 }
